@@ -1,9 +1,7 @@
 ﻿using LinqToDB;
-using LinqToDB.Data;
 using MinimalApiWithLinq2Db.Commons;
 using MinimalApiWithLinq2Db.Database;
 using MinimalApiWithLinq2Db.Todos.Dtos;
-using MinimalApiWithLinq2Db.TodoStatuses;
 
 namespace MinimalApiWithLinq2Db.Todos
 {
@@ -11,9 +9,8 @@ namespace MinimalApiWithLinq2Db.Todos
     {
         public static void AddTodoEndpoints(this WebApplication app)
         {
-            app.MapGet("/todos", async (int offset, int limit) =>
+            app.MapGet("/todos", async (TodoDbConnection db, int offset, int limit) =>
             {
-                using var db = new TodoDbConnection();
                 var todos = await db.Todos
                 .LoadWith(t => t.Status)
                 .OrderBy(t => t.Id)
@@ -28,9 +25,8 @@ namespace MinimalApiWithLinq2Db.Todos
 
             });
 
-            app.MapGet("/todos/{id}", async (int id) =>
+            app.MapGet("/todos/{id}", async (TodoDbConnection db, int id) =>
             {
-                using var db = new TodoDbConnection();
                 var todo = await db.Todos.LoadWith(t => t.Status)
                     .FirstOrDefaultAsync(t => t.Id == id);
 
@@ -41,9 +37,8 @@ namespace MinimalApiWithLinq2Db.Todos
 
             });
 
-            app.MapPost("/todos", async (CreateTodoDto dto) =>
+            app.MapPost("/todos", async (TodoDbConnection db, CreateTodoDto dto) =>
             {
-                using var db = new TodoDbConnection();
                 var createdTodoId = await db.InsertWithInt32IdentityAsync<Todo>(new Todo
                 {
                     Name = dto.Name,
@@ -55,25 +50,8 @@ namespace MinimalApiWithLinq2Db.Todos
 
             });
 
-            //app.MapPost("/todos/bulk-copy", async () =>
-            //{
-            //    var todos = Enumerable.Range(0, 100000).Select(i => new Todo()
-            //    {
-            //        Name = $"test{i}",
-            //        Description = $"testDesc{i}"
-            //    });
-
-
-            //    using var db = new TodoDbConnection();
-
-            //    await db.BulkCopyAsync(todos);
-            //    return Results.Ok();
-
-            //});
-
-            app.MapPut("/todos/", async (UpdateTodoDto dto) =>
+            app.MapPut("/todos/", async (TodoDbConnection db, UpdateTodoDto dto) =>
             {
-                using var db = new TodoDbConnection();
                 await db.UpdateAsync(new Todo()
                 {
                     Id = dto.Id,
@@ -85,10 +63,8 @@ namespace MinimalApiWithLinq2Db.Todos
                 return Results.NoContent();
             });
 
-            app.MapDelete("/todos", async (int id) =>
+            app.MapDelete("/todos", async (TodoDbConnection db, int id) =>
             {
-                using var db = new TodoDbConnection();
-
                 await db.Todos.DeleteAsync(t => t.Id == id);
 
                 return Results.NoContent();

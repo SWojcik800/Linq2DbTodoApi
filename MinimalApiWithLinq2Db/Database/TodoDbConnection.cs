@@ -7,8 +7,8 @@ namespace MinimalApiWithLinq2Db.Database
 {
     public sealed class TodoDbConnection : DataConnection
     {
-        public TodoDbConnection()
-            :base ("Default")
+        public TodoDbConnection(DataOptions<TodoDbConnection> options)
+            : base(options.Options)
         {
 
         }

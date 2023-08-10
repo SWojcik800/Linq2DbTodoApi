@@ -1,11 +1,18 @@
+using LinqToDB;
+using LinqToDB.AspNet;
+using LinqToDB.AspNet.Logging;
+using LinqToDB.Data;
 using MinimalApiWithLinq2Db.Database;
 using MinimalApiWithLinq2Db.Todos;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
-var settings = new TodoDbConnectionSettings(configuration.GetConnectionString("Default"));
-LinqToDB.Data.DataConnection.DefaultSettings = settings;
+
+builder.Services.AddLinqToDBContext<TodoDbConnection>((provider, options)
+            => options
+                .UseSqlServer(configuration.GetConnectionString("Default"))
+                .UseDefaultLogging(provider));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
