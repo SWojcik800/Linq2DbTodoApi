@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalApiWithLinq2Db", "MinimalApiWithLinq2Db.csproj", "{ABEC88D8-CBBD-4C03-96C6-AB07A85D6E14}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MinimalApiDb", "..\MinimalApiDb\MinimalApiDb.sqlproj", "{AB520B75-04CF-42B0-8426-3FAD561D50CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABEC88D8-CBBD-4C03-96C6-AB07A85D6E14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABEC88D8-CBBD-4C03-96C6-AB07A85D6E14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABEC88D8-CBBD-4C03-96C6-AB07A85D6E14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABEC88D8-CBBD-4C03-96C6-AB07A85D6E14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB520B75-04CF-42B0-8426-3FAD561D50CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB520B75-04CF-42B0-8426-3FAD561D50CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB520B75-04CF-42B0-8426-3FAD561D50CD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{AB520B75-04CF-42B0-8426-3FAD561D50CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB520B75-04CF-42B0-8426-3FAD561D50CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB520B75-04CF-42B0-8426-3FAD561D50CD}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {57F1DD59-D099-4E32-B12F-704EF29C96A0}
+	EndGlobalSection
+EndGlobal

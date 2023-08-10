@@ -1,0 +1,10 @@
+C:\Users\leon\source\repos\MinimalApiDb\bin\Debug\MinimalApiDb.dacpac
+C:\Users\leon\source\repos\MinimalApiDb\bin\Debug\MinimalApiDb.dll
+C:\Users\leon\source\repos\MinimalApiDb\bin\Debug\MinimalApiDb.pdb
+C:\Users\leon\source\repos\MinimalApiDb\obj\Debug\MinimalApiDb.sqlproj.AssemblyReference.cache
+C:\Users\leon\source\repos\MinimalApiDb\obj\Debug\Model.xml
+C:\Users\leon\source\repos\MinimalApiDb\obj\Debug\refactor.xml
+C:\Users\leon\source\repos\MinimalApiDb\obj\Debug\postdeploy.sql
+C:\Users\leon\source\repos\MinimalApiDb\obj\Debug\predeploy.sql
+C:\Users\leon\source\repos\MinimalApiDb\obj\Debug\MinimalApiDb.dll
+C:\Users\leon\source\repos\MinimalApiDb\obj\Debug\MinimalApiDb.pdb

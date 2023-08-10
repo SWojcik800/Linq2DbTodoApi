@@ -1,0 +1,17 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Todos] (Table)
+       [dbo].[TodoStatuses] (Table)
+       [dbo].[FK_Todos_TodoStatuses] (Foreign Key)
+
+** Supporting actions
