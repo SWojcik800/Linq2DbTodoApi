@@ -1,4 +1,5 @@
 ﻿using LinqToDB;
+using LinqToDB.Data;
 using MinimalApiWithLinq2Db.Commons;
 using MinimalApiWithLinq2Db.Database;
 using MinimalApiWithLinq2Db.Todos.Dtos;
@@ -19,6 +20,20 @@ namespace MinimalApiWithLinq2Db.Todos
                 .ToListAsync();
 
                 var totalCount = await db.Todos.CountAsync();
+                var pagedResult = new PagedResult<Todo>(totalCount, todos);
+
+                return Results.Ok(pagedResult);
+
+            });
+
+            app.MapGet("/todos/getAll", async (TodoDbConnection db) =>
+            {
+                var todos = await db.Todos
+                .LoadWith(t => t.Status)
+                .OrderBy(t => t.Id)
+                .ToListAsync();
+
+                var totalCount = todos.Count();
                 var pagedResult = new PagedResult<Todo>(totalCount, todos);
 
                 return Results.Ok(pagedResult);
