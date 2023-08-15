@@ -32,7 +32,7 @@ namespace MinimalApiWithLinq2Db.Todos
                 .LoadWith(t => t.Status)
                 .OrderBy(t => t.Id)
                 .ToListAsync();
-
+                
                 var totalCount = todos.Count();
                 var pagedResult = new PagedResult<Todo>(totalCount, todos);
 
