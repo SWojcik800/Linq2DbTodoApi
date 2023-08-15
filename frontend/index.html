@@ -206,7 +206,7 @@
                   </div>
                   <div class="form-group">
                     <label for="status" class="col-form-label">Status:</label>
-                    <select class="form-select" aria-label="Status" name="status" x-model="createdTodo.statusId">
+                    <select class="form-select" aria-label="Status" name="status" x-init="createdTodo.statusId = 1" x-model="createdTodo.statusId">
                       <template x-for="status in statuses">
                         <option :value="status.id" x-text="status.name"></option>
                       </template>
